@@ -431,6 +431,8 @@ GameObject:
   m_Component:
   - component: {fileID: 969336350}
   - component: {fileID: 969336351}
+  - component: {fileID: 969336353}
+  - component: {fileID: 969336352}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -470,6 +472,41 @@ MonoBehaviour:
   head: {fileID: 505966589}
   sensitivityX: 10
   sensitivityY: 10
+  speed: 6
+  jumpSpeed: 8
+  gravity: 20
+--- !u!143 &969336352
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 969336349}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Height: 2
+  m_Radius: 0.5
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!136 &969336353
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 969336349}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1563222875
 GameObject:
   m_ObjectHideFlags: 0
