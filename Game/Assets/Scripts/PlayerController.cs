@@ -96,12 +96,12 @@ public class PlayerController : MonoBehaviour
             //create the new movement vector with the values calculated;
             moveDirection = new Vector3(finalXMovement, 0f, finalZMovement);
             moveDirection *= speed;
-            Debug.Log(moveDirection);
 
             if (Input.GetButtonDown("Jump"))
             {
                 moveDirection.y = jumpSpeed;
-                Debug.Log(transform.eulerAngles.y.ToString());
+                Tree tree = FindObjectOfType<Tree>();
+                tree.Cut();
             }
         }
         //apply gravity the first time 
