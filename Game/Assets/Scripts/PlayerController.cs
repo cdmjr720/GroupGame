@@ -39,11 +39,19 @@ public class PlayerController : MonoBehaviour
     float finalXMovement;
     float finalZMovement;
 
+    //variables for cutting trees
+    Tree[] allTrees;
+    PlayerController player;
+    float distanceToClosestTree = Mathf.Infinity;
+    Tree closestTree;
+
     private void Start()
     {
         LockCursor();
         Vector3 lastMousePos = Input.mousePosition;
         characterController = GetComponent<CharacterController>();
+        player = FindObjectOfType<PlayerController>();
+        allTrees = FindObjectsOfType<Tree>();
     }
 
     private static void LockCursor()
@@ -57,6 +65,29 @@ public class PlayerController : MonoBehaviour
     {
         movement();
         updateRotation();
+        interact();
+    }
+
+    private void interact()
+    {
+        
+
+        foreach (Tree tree in allTrees)
+        {
+            if (Vector3.Distance(tree.transform.position, player.transform.position) < distanceToClosestTree)
+            {
+                distanceToClosestTree = Vector3.Distance(tree.transform.position, player.transform.position);
+                closestTree = tree;
+            }
+        }
+
+        if (distanceToClosestTree < 5)
+        {
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                closestTree.Cut();
+            }
+        }
     }
 
     private void movement()
@@ -67,7 +98,7 @@ public class PlayerController : MonoBehaviour
             horizontal = Input.GetAxis("Horizontal");
             vertical = Input.GetAxis("Vertical");
 
-            Debug.Log(horizontal + "                 " + vertical);
+            //get the rotation of the player
             rotationDegree = transform.eulerAngles.y;
             rotationRadian = ToRadians(rotationDegree);
             if (vertical != 0)
@@ -93,6 +124,13 @@ public class PlayerController : MonoBehaviour
             finalXMovement = (xMovementHorizontal + xMovementVertical) / 2;
             finalZMovement = (zMovementHorizontal + zMovementVertical) / 2;
 
+            //stop the player from drifting 
+            if (finalXMovement < .2 && finalXMovement > -.2 && finalZMovement < .2 && finalZMovement > -.2)
+            {
+                finalXMovement = 0;
+                finalZMovement = 0;
+            }
+
             //create the new movement vector with the values calculated;
             moveDirection = new Vector3(finalXMovement, 0f, finalZMovement);
             moveDirection *= speed;
@@ -100,8 +138,6 @@ public class PlayerController : MonoBehaviour
             if (Input.GetButtonDown("Jump"))
             {
                 moveDirection.y = jumpSpeed;
-                Tree tree = FindObjectOfType<Tree>();
-                tree.Cut();
             }
         }
         //apply gravity the first time 
@@ -109,7 +145,6 @@ public class PlayerController : MonoBehaviour
         moveDirection.y -= gravity * Time.deltaTime;
 
         //move the controller 
-        Debug.Log(moveDirection * Time.deltaTime);
         characterController.Move(moveDirection * Time.deltaTime);
     }
 
