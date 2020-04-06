@@ -98,11 +98,7 @@ public class PlayerController : MonoBehaviour
             horizontal = Input.GetAxis("Horizontal");
             vertical = Input.GetAxis("Vertical");
 
-<<<<<<< HEAD
-            //Debug.Log(horizontal + "                 " + vertical);
-=======
             //get the rotation of the player
->>>>>>> 7e42a3f11c50b94411a44f909a7c6accb9140d96
             rotationDegree = transform.eulerAngles.y;
             rotationRadian = ToRadians(rotationDegree);
             if (vertical != 0)
@@ -149,10 +145,6 @@ public class PlayerController : MonoBehaviour
         moveDirection.y -= gravity * Time.deltaTime;
 
         //move the controller 
-<<<<<<< HEAD
-        //Debug.Log(moveDirection * Time.deltaTime);
-=======
->>>>>>> 7e42a3f11c50b94411a44f909a7c6accb9140d96
         characterController.Move(moveDirection * Time.deltaTime);
     }
 
