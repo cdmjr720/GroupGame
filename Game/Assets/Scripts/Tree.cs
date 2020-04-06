@@ -17,6 +17,12 @@ public class Tree : MonoBehaviour
     private float timeLeft;
     MeshFilter meshFilter;
     MeshRenderer meshRenderer;
+    
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawSphere(transform.position, 1);
+    }
 
     private void Start()
     {
