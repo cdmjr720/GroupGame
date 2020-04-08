@@ -648,7 +648,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98dbc8fb654289545b974b1a67289fc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  logPile: {fileID: 1017617781539410, guid: d15f260e64138674b9c202ff5a16d61a, type: 3}
+  logPile: {fileID: 114594, guid: e0bcb36554be1124b8a89d63037350be, type: 3}
   tree: {fileID: 137650, guid: 826b6a0b570e8460990010fa615b5a2a, type: 3}
   hardness: 3
 --- !u!4 &1391545241
@@ -660,7 +660,7 @@ Transform:
   m_GameObject: {fileID: 1391545239}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -7.64, y: 0, z: 10.71}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.3, y: 1.3, z: 1.3}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
