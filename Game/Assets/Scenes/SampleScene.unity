@@ -121,6 +121,51 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 23800000, guid: 43e6cfa8260d48847b0f4cf3040ef7b1, type: 2}
+--- !u!1 &347586995
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 347586997}
+  - component: {fileID: 347586996}
+  m_Layer: 0
+  m_Name: WoodItemTest
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &347586996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 347586995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 117bc1c1aea4b7e458a044b66ecf7179, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHeld: 10
+  itemName: Wood
+--- !u!4 &347586997
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 347586995}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.2115021, y: 13.233667, z: -3.3191338}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &505966589
 GameObject:
   m_ObjectHideFlags: 0
@@ -545,6 +590,7 @@ GameObject:
   - component: {fileID: 969336351}
   - component: {fileID: 969336353}
   - component: {fileID: 969336352}
+  - component: {fileID: 969336354}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -619,6 +665,18 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &969336354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 969336349}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce4625d5c6bbe9d43a171d2a13e81d83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1391545239
 GameObject:
   m_ObjectHideFlags: 0
@@ -650,6 +708,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   logPile: {fileID: 114594, guid: e0bcb36554be1124b8a89d63037350be, type: 3}
   tree: {fileID: 137650, guid: 826b6a0b570e8460990010fa615b5a2a, type: 3}
+  woodItem: {fileID: 347586996}
   hardness: 3
 --- !u!4 &1391545241
 Transform:
