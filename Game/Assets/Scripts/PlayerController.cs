@@ -70,8 +70,6 @@ public class PlayerController : MonoBehaviour
 
     private void interact()
     {
-        
-
         foreach (Tree tree in allTrees)
         {
             if (Vector3.Distance(tree.transform.position, player.transform.position) < distanceToClosestTree)

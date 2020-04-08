@@ -10,6 +10,11 @@ public class Tree : MonoBehaviour
     GameObject logPileInstance;
     GameObject treeInstance;
 
+    //item picked up 
+    [SerializeField] Item woodItem;
+    //players' inventory 
+    InventorySystem inventorySystem;
+
     //hardness relates to the time it takes to cut down the tree 
     //TODO change this so it is determined by what the character is holding so tools can be used 
     [SerializeField] [Range(1, 10)] float hardness = 9f;
@@ -28,11 +33,13 @@ public class Tree : MonoBehaviour
     {
         //make the tree visible 
         treeInstance = Instantiate<GameObject>(tree, gameObject.transform);
+        inventorySystem = FindObjectOfType<InventorySystem>();
     }
 
     public void Cut()
     {
         logPileInstance = Instantiate<GameObject>(logPile, gameObject.transform);
         Destroy(treeInstance);
+        inventorySystem.AddItem(woodItem, 1);
     }
 }
