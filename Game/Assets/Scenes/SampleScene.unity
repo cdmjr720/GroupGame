@@ -323,6 +323,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chaseDistance: 5
   target: {fileID: 969336350}
+  suspicionTime: 3
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
