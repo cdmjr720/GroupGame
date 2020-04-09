@@ -130,7 +130,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 60782278}
-  - component: {fileID: 60782277}
   m_Layer: 0
   m_Name: PatrolPath
   m_TagString: Untagged
@@ -138,18 +137,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &60782277
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 60782276}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b85808f9a97909f43be73fb264a173e7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &60782278
 Transform:
   m_ObjectHideFlags: 0
@@ -540,8 +527,11 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 969336350}
-    m_RemovedComponents:
-    - {fileID: 633209134, guid: 679ff741e12a7e740819ede24a7000b7, type: 3}
+    - target: {fileID: 633209138, guid: 679ff741e12a7e740819ede24a7000b7, type: 3}
+      propertyPath: patrolPath
+      value: 
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 679ff741e12a7e740819ede24a7000b7, type: 3}
 --- !u!1 &705507993
 GameObject:
