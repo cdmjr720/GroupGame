@@ -4,12 +4,16 @@ using System.Collections.Generic;
 using Island.Movement;
 using UnityEngine;
 
+//action scheduler taken from 312 course
+
 namespace Island.Core
 {
     public class ActionScheduler : MonoBehaviour
     {
+        //variable for IAction
         IAction currentAction;
 
+        //function to start action sequence
         public void StartAction(IAction action)
         {
             if (currentAction == action) return;
@@ -19,18 +23,11 @@ namespace Island.Core
             }
             currentAction = action;
         }
+
+        //function to cancel action sequence
         public void CancelCurrentAction()
         {
             StartAction(null);
         }
-
-        public interface IAction
-        {
-            void Cancel();
-        }
-
     }
-
-
-
 }

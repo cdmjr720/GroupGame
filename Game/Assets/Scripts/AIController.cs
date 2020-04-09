@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using Island.Control;
 using Island.Core;
 using Island.Movement;
 using UnityEngine;
@@ -11,26 +10,36 @@ namespace Island.Control
 {
     public class AIController : MonoBehaviour
     {
+        
         [SerializeField] float chaseDistance = 5f;
         [SerializeField] float suspicionTime = 3f;
         [SerializeField] PatrolPath patrolPath;
         [SerializeField] float waypointTolerance = 1f;
-
-        Mover mover;
-        GameObject player;
-
-        Vector3 guardPosition;
-        float timeSinceLastSawPlayer = Mathf.Infinity;
-        int currentWaypointIndex = 0;
-
+        
         //sets "target" for enemy to find player
         [SerializeField] Transform target;
 
+        //calls mover variable from NativeMover Script
+        NativeMover mover;
+
+        //creates variable for player
+        GameObject player;
+
+        //creates vector variable for guard's position
+        Vector3 guardPosition;
+
+        //float variable for the last time enemy "saw" player
+        float timeSinceLastSawPlayer = Mathf.Infinity;
+
+        //establishes a variable for the waypoint index
+        int currentWaypointIndex = 0;
+
+        //calls NavMeshAgent
         NavMeshAgent navMeshAgent;
 
         private void Start()
         {
-            mover = GetComponent<Mover>();
+            mover = GetComponent<NativeMover>();
             player = GameObject.FindWithTag("Player");
 
             guardPosition = transform.position;
@@ -46,6 +55,8 @@ namespace Island.Control
 
             else if (timeSinceLastSawPlayer < suspicionTime)
             {
+                //calls suspicion behavior function
+                //doesn't seem to be working right now
                 SuspicionBehaviour();
 
             }
@@ -57,6 +68,7 @@ namespace Island.Control
             timeSinceLastSawPlayer += Time.deltaTime;
         }
 
+        //establishes the patrol behavior for the enemy/native
         private void PatrolBehaviour()
         {
             Vector3 nextPosition = guardPosition;
@@ -73,6 +85,7 @@ namespace Island.Control
             mover.StartMoveAction(nextPosition);
         }
 
+        //bool to register enemy's relation to waypoint
         private bool AtWaypoint()
         {
             float distanceToWaypoint = Vector3.Distance(transform.position, GetCurrentWaypoint());
@@ -81,14 +94,19 @@ namespace Island.Control
 
         private void CycleWaypoint()
         {
+            //function cycles through the waypoints
             currentWaypointIndex = patrolPath.GetNextIndex(currentWaypointIndex);
         }
 
+        //Finds the current waypoint index for enemy/native to patrol
         private Vector3 GetCurrentWaypoint()
         {
             return patrolPath.GetWaypoint(currentWaypointIndex);
         }
 
+
+        //function to call Cancel Action from ActionScheduler script for suspicious behavior
+        //doesn't seem to work right now
         private void SuspicionBehaviour()
         {
             GetComponent<ActionScheduler>().CancelCurrentAction();
@@ -105,13 +123,14 @@ namespace Island.Control
             //for future attack behavior
         }
 
+        // to find if enemy/native is in range of the player
         private bool InAttackRangeOfPlayer()
         {
             float distanceToPlayer = Vector3.Distance(player.transform.position, transform.position);
             return distanceToPlayer < chaseDistance;
         }
 
-        // Called by Unity
+        // colors radius around Native
         private void OnDrawGizmosSelected()
         {
             Gizmos.color = Color.blue;

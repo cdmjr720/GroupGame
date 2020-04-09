@@ -4,29 +4,34 @@ using Island.Core;
 using UnityEngine;
 using UnityEngine.AI;
 
+//script for making the native move, a lot of this was taken from 312 course
+
 namespace Island.Movement
 {
-    public class Mover : MonoBehaviour, IAction
+    public class NativeMover : MonoBehaviour, IAction
     {
-        [SerializeField] Transform target;
-
+        //variable to call NavMeshAgent
         NavMeshAgent navMeshAgent;
         
         private void Start()
         {
+            //calls NMA
             navMeshAgent = GetComponent<NavMeshAgent>();
             
 }
 
         void Update()
         {
-
+            //will update animator when that is functioning
             UpdateAnimator();
         }
 
         public void StartMoveAction(Vector3 destination)
         {
-//            GetComponent<ActionScheduler>().StartAction(this);
+            //I'm not sure why the following line DOESN'T work, or why it works when that line is commented out
+            //            GetComponent<ActionScheduler>().StartAction(this);
+            
+            //moves to assigned destination
             MoveTo(destination);
         }
 
@@ -46,7 +51,7 @@ namespace Island.Movement
             Vector3 velocity = navMeshAgent.velocity;
             Vector3 localVelocity = transform.InverseTransformDirection(velocity);
             float speed = localVelocity.z;
-            GetComponent<Animator>().SetFloat("forwardSpeed", speed);
+//            GetComponent<Animator>().SetFloat("forwardSpeed", speed);
         }
     }
 }

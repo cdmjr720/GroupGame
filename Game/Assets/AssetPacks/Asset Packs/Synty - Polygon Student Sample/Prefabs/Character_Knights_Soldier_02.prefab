@@ -2172,8 +2172,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chaseDistance: 5
-  target: {fileID: 0}
   suspicionTime: 3
+  patrolPath: {fileID: 0}
+  waypointTolerance: 1
+  target: {fileID: 0}
 --- !u!1 &193320
 GameObject:
   m_ObjectHideFlags: 0

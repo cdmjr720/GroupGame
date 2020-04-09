@@ -2,12 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//patrol path code (taken from 312 course)
+
 namespace Island.Control
 {
     public class PatrolPath : MonoBehaviour
     {
+        //float for radius for gizmo
         const float waypointGizmoRadius = 0.3f;
 
+        //function to draw gizmos on patrol path/children
         private void OnDrawGizmos()
         {
             for (int i = 0; i < transform.childCount; i++)
@@ -18,6 +22,7 @@ namespace Island.Control
             }
         }
 
+        //finds and returns the children of the patrol path (waypoints)
         public int GetNextIndex(int i)
         {
             if (i + 1 == transform.childCount)
