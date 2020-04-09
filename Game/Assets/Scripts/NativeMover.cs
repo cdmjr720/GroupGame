@@ -3,15 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-//original mover for native, will probably delete
+//script for Native "Patrol"
 
 public class NativeMover : MonoBehaviour
 {
-    [SerializeField] Transform target;
+    const float waypointGizmoRadius = 0.3f;
+
+    private void OnDrawGizmos()
+    {
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            Gizmos.DrawSphere(transform.GetChild(i).position, waypointGizmoRadius);
+        }
+    }
 
     private void Update()
     {
-        GetComponent<NavMeshAgent>().destination = target.position;
 
     }
 
