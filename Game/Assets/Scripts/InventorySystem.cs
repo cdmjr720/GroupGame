@@ -1,12 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class InventorySystem : MonoBehaviour
 {
     //Script to keep track on player inventory 
     //Might be an array of game objects with a quantity held 
 
+    //inventory slots in UI
+    [SerializeField] GameObject[] inventorySlots;
 
     //array of items in inventory 
     Item[] items = new Item[5];
@@ -61,6 +64,7 @@ public class InventorySystem : MonoBehaviour
             if (items[i] == null)
             {
                 items[i] = itemPickedUp;
+                inventorySlots[i].GetComponent<Image>().sprite = itemPickedUp.GetComponent<SpriteRenderer>().sprite;
                 numHeld[i] = quantity;
                 Debug.Log(this.ToString());
                 return;
