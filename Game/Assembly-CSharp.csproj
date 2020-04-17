@@ -64,6 +64,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\AIController.cs" />
     <Compile Include="Assets\Scripts\ActionScheduler.cs" />
+    <Compile Include="Assets\Scripts\Fishing.cs" />
     <Compile Include="Assets\Scripts\Health.cs" />
     <Compile Include="Assets\Scripts\HealthBar.cs" />
     <Compile Include="Assets\Scripts\IAction.cs" />
