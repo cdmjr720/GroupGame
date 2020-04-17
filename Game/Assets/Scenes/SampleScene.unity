@@ -771,6 +771,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 708200696}
+  - component: {fileID: 708200697}
   m_Layer: 0
   m_Name: Health Bar
   m_TagString: Untagged
@@ -785,14 +786,28 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 708200695}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 90.67, y: 53.77, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2138359102}
-  m_Father: {fileID: 969336350}
-  m_RootOrder: 2
+  m_Father: {fileID: 895142261}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &708200697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 708200695}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dde876fea3745cf498334b491ed9f634, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthComponent: {fileID: 969336355}
+  foreground: {fileID: 1716035475}
 --- !u!1 &815827441
 GameObject:
   m_ObjectHideFlags: 0
@@ -1055,6 +1070,7 @@ RectTransform:
   - {fileID: 815827442}
   - {fileID: 2018409833}
   - {fileID: 1357511919}
+  - {fileID: 708200696}
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1276,7 +1292,6 @@ Transform:
   m_Children:
   - {fileID: 875618602}
   - {fileID: 505966590}
-  - {fileID: 708200696}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
