@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -15,9 +16,10 @@ public class Tree : MonoBehaviour
     //players' inventory 
     InventorySystem inventorySystem;
 
-    //hardness relates to the time it takes to cut down the tree 
-    //TODO change this so it is determined by what the character is holding so tools can be used 
-    [SerializeField] [Range(1, 10)] float hardness = 9f;
+    //tree will be cut down and then chopped 3 times
+    private bool isCut = false;
+    private int timesChopped = 0;
+    private int maxTimesChopped = 3;
 
     private float timeLeft;
     MeshFilter meshFilter;
@@ -38,8 +40,44 @@ public class Tree : MonoBehaviour
 
     public void Cut()
     {
+        //create the log object 
         logPileInstance = Instantiate<GameObject>(logPile, gameObject.transform);
+        //destroy tree
         Destroy(treeInstance);
-        inventorySystem.AddItem(woodItem, 1);
+        //change isCut to true
+        isCut = true;
+    }
+
+    public void Interact() //called by player controller
+    {
+        if (!isCut) //not cut yet 
+        {
+            Cut();
+        } else
+        {
+            Chop();
+        }
+    }
+
+    private void Chop() //tree is cut down
+    {
+        if (timesChopped < maxTimesChopped-1)
+        {
+            //give player item
+            inventorySystem.AddItem(woodItem, 1);
+            timesChopped += 1;
+        } else
+        {
+            //give item and destroy the game object
+            inventorySystem.AddItem(woodItem, 1);
+            Destroy(gameObject);
+        }
+    }
+    
+    //this is when the log has been chopped 3 times 
+    private void OnDestroy()
+    {
+        PlayerController playerController = FindObjectOfType<PlayerController>();
+        playerController.UpdateTrees();
     }
 }
