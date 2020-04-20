@@ -83,7 +83,7 @@ public class PlayerController : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
-                closestTree.Cut();
+                closestTree.Interact();
             }
         }
     }
@@ -167,5 +167,10 @@ public class PlayerController : MonoBehaviour
     {
         float newAngle = (float)(angle * Math.PI / 180);
         return newAngle;
+    }
+
+    public void UpdateTrees()
+    {
+        allTrees = FindObjectsOfType<Tree>();
     }
 }
