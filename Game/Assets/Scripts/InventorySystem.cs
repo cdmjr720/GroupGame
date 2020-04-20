@@ -10,6 +10,7 @@ public class InventorySystem : MonoBehaviour
 
     //inventory slots in UI
     [SerializeField] GameObject[] inventorySlots;
+    [SerializeField] Text[] inventoryText;
 
     //array of items in inventory 
     Item[] items = new Item[5];
@@ -32,6 +33,8 @@ public class InventorySystem : MonoBehaviour
         
     }
     
+    //to string method for debug
+    //no effect on game 
     public override string ToString()
     {
         string str = "";
@@ -52,21 +55,21 @@ public class InventorySystem : MonoBehaviour
     {
         for (int i = 0; i < items.Length; i++)
         {
-            if (items[i] == itemPickedUp && numHeld[i] < items[i].GetMaxHeld())
+            if (items[i] == itemPickedUp && numHeld[i] < items[i].GetMaxHeld()) //if already holding that type with more room
             {
-                numHeld[i] += quantity;
-                Debug.Log(this.ToString());
+                numHeld[i] += quantity; //pick up 
+                inventoryText[i].text = numHeld[i].ToString(); //update text 
                 return;
             }
         }
         for (int i = 0; i < items.Length; i++)
         {
-            if (items[i] == null)
+            if (items[i] == null) //empty slot 
             {
-                items[i] = itemPickedUp;
-                inventorySlots[i].GetComponent<Image>().sprite = itemPickedUp.GetComponent<SpriteRenderer>().sprite;
-                numHeld[i] = quantity;
-                Debug.Log(this.ToString());
+                items[i] = itemPickedUp; //set the type to the item
+                inventorySlots[i].GetComponent<Image>().sprite = itemPickedUp.GetComponent<SpriteRenderer>().sprite; //change picture 
+                numHeld[i] = quantity; //add to number held 
+                inventoryText[i].text = numHeld[i].ToString(); //update text
                 return;
             }
         }

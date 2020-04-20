@@ -45,6 +45,12 @@ public class PlayerController : MonoBehaviour
     float distanceToClosestTree = Mathf.Infinity;
     Tree closestTree;
 
+    //variables for catching fish
+    Fishing[] allFish;
+    float distanceToClosestFish = Mathf.Infinity;
+    Fishing closestFish;
+
+
     private void Start()
     {
         LockCursor();
@@ -52,6 +58,7 @@ public class PlayerController : MonoBehaviour
         characterController = GetComponent<CharacterController>();
         player = FindObjectOfType<PlayerController>();
         allTrees = FindObjectsOfType<Tree>();
+        allFish = FindObjectsOfType<Fishing>();
     }
 
     private static void LockCursor()
@@ -66,6 +73,7 @@ public class PlayerController : MonoBehaviour
         movement();
         updateRotation();
         interact();
+        fishing();
     }
 
     private void interact()
@@ -83,9 +91,33 @@ public class PlayerController : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
-                closestTree.Cut();
+                closestTree.Interact();
             }
         }
+
+        foreach (Fishing fish in allFish)
+        {
+            if (Vector3.Distance(fish.transform.position, player.transform.position) < distanceToClosestFish)
+            {
+                distanceToClosestFish = Vector3.Distance(fish.transform.position, player.transform.position);
+                closestFish = fish;
+            }
+        }
+
+        if (distanceToClosestFish < 5)
+        {
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                closestFish.Interact();
+            }
+        }
+
+    }
+
+    private void fishing()
+    {
+
+
     }
 
     private void movement()
@@ -167,5 +199,11 @@ public class PlayerController : MonoBehaviour
     {
         float newAngle = (float)(angle * Math.PI / 180);
         return newAngle;
+    }
+
+    public void UpdateItems()
+    {
+        allTrees = FindObjectsOfType<Tree>();
+        allFish = FindObjectsOfType<Fishing>();
     }
 }

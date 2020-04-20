@@ -73,6 +73,7 @@
     <Compile Include="Assets\Scripts\NativeMover.cs" />
     <Compile Include="Assets\Scripts\PatrolPath.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
+    <Compile Include="Assets\Scripts\Rock.cs" />
     <Compile Include="Assets\Scripts\SceneLoader.cs" />
     <Compile Include="Assets\Scripts\Tree.cs" />
     <None Include="Assets\AssetPacks\Asset Packs\Synty - Polygon Student Sample\README - Usage Rights for these assets.txt" />
