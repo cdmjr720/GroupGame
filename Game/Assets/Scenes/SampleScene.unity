@@ -305,6 +305,10 @@ MonoBehaviour:
   - {fileID: 2011333576}
   - {fileID: 326302648}
   - {fileID: 323680048}
+  fish: {fileID: 319507980}
+  fishItem: {fileID: 7048917474264769887, guid: 94a36564eb118f84485278e02008bb68,
+    type: 3}
+  difficulty: 9
 --- !u!65 &319507982
 BoxCollider:
   m_ObjectHideFlags: 0
