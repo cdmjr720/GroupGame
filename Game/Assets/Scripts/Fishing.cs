@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿//using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -25,6 +26,7 @@ public class Fishing : MonoBehaviour
     //relates to the difficulty of catching fish
     [SerializeField] [Range(1, 10)] float difficulty = 9f;
 
+    private bool isCaught = false;
 
     private void Start()
     {
@@ -50,6 +52,26 @@ public class Fishing : MonoBehaviour
             isMoving = false;
         }
 
+    }
+
+    public void Interact() //called by player controller
+    {
+        if (!isCaught) //not caught yet 
+        {
+            Catch();
+        }
+        else
+        {
+            Fish();
+        }
+    }
+
+    public void Fish()
+    {
+        //destroy fish
+        Destroy(fishInstance);
+        //change isCut to true
+        isCaught = true;
     }
 
     public void Catch()
