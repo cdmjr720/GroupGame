@@ -78,6 +78,6 @@ public class Tree : MonoBehaviour
     private void OnDestroy()
     {
         PlayerController playerController = FindObjectOfType<PlayerController>();
-        playerController.UpdateTrees();
+        playerController.UpdateItems();
     }
 }
