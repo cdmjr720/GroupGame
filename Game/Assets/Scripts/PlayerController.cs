@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -27,6 +28,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float jumpSpeed = 8f;
     [SerializeField] float gravity = 20f;
     Vector3 moveDirection = Vector3.zero;
+
     //holds vertical and horizontal values on keypress
     float horizontal;
     float vertical;
@@ -41,6 +43,8 @@ public class PlayerController : MonoBehaviour
 
     //reach distance for interacting with things
     [SerializeField] float reachDistance = 6f;
+    //text on canvas to tell player to press E
+    [SerializeField] Text interactAlertText;
 
     //interaction variables 
     InteractableObject[] allInteractables;
@@ -53,6 +57,7 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
+        interactAlertText.enabled = false;
         LockCursor();
         Vector3 lastMousePos = Input.mousePosition;
         characterController = GetComponent<CharacterController>();
@@ -90,8 +95,9 @@ public class PlayerController : MonoBehaviour
         //within range
         if (nearestObjectDistance < reachDistance)
         {
-            //TODO
-            //press E to interact canvas thing should go here 
+            //show the interact alert 
+            interactAlertText.enabled = true;
+
             if (Input.GetKeyDown(KeyCode.E))
             {
                 nearestObject.Interact();
@@ -99,6 +105,9 @@ public class PlayerController : MonoBehaviour
                 nearestObject = null;
                 nearestObjectDistance = Mathf.Infinity;
             }
+        } else
+        {
+            interactAlertText.enabled = false;
         }
     }
 
