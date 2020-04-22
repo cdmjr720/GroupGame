@@ -4,15 +4,24 @@ using UnityEngine;
 
 public class InteractableObject : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    //This is for any object you can interact with.
+    //It will include fish, trees, rocks, and other things
+
+    bool isInteractable = true;
+
+    public virtual void Interact()
     {
-        
+
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SetIsInteractableFalse()
     {
-        
+        isInteractable = false;
     }
+
+    public bool IsInteractable()
+    {
+        return isInteractable;
+    }
+
 }

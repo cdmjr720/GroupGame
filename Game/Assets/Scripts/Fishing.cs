@@ -5,7 +5,7 @@ using UnityEngine;
 
 // https://www.youtube.com/watch?v=Ae7XJ8Ai42I
 
-public class Fishing : MonoBehaviour
+public class Fishing : InteractableObject
 {
     //variable and bool for destination target (so fish "swims")
     public Transform[] target;
@@ -18,7 +18,6 @@ public class Fishing : MonoBehaviour
     //textures for the fish and for when fish is caught
     [SerializeField] GameObject fish;
     [SerializeField] Item fishItem;
-    GameObject fishInstance;
 
     //allows for inventory system to be called
     InventorySystem inventorySystem;
@@ -32,7 +31,6 @@ public class Fishing : MonoBehaviour
     {
         //calls inventory system
         inventorySystem = FindObjectOfType<InventorySystem>();
-
     }
 
     public void Update()
@@ -54,30 +52,17 @@ public class Fishing : MonoBehaviour
 
     }
 
-    public void Interact() //called by player controller
+    public override void Interact() //called by player controller
     {
-        if (!isCaught) //not caught yet 
-        {
-            Catch();
-        }
-        else
-        {
-            Fish();
-        }
-    }
-
-    public void Fish()
-    {
-        //destroy fish
-        Destroy(fishInstance);
-        //change isCut to true
-        isCaught = true;
+        Catch();
     }
 
     public void Catch()
     {
-        Destroy(fishInstance);
         inventorySystem.AddItem(fishItem, 1);
+        SetIsInteractableFalse();
+        GetComponent<BoxCollider>().enabled = false;
+        GetComponent<MeshRenderer>().enabled = false;
     }
 
 }
