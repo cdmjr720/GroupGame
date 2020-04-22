@@ -39,16 +39,16 @@ public class PlayerController : MonoBehaviour
     float finalXMovement;
     float finalZMovement;
 
-    //variables for cutting trees
-    Tree[] allTrees;
-    PlayerController player;
-    float distanceToClosestTree = Mathf.Infinity;
-    Tree closestTree;
+    //reach distance for interacting with things
+    [SerializeField] float reachDistance = 6f;
 
-    //variables for catching fish
-    Fishing[] allFish;
-    float distanceToClosestFish = Mathf.Infinity;
-    Fishing closestFish;
+    //interaction variables 
+    InteractableObject[] allInteractables;
+    float nearestObjectDistance = Mathf.Infinity;
+    InteractableObject nearestObject;
+
+    //player object
+    PlayerController player;
 
 
     private void Start()
@@ -57,8 +57,7 @@ public class PlayerController : MonoBehaviour
         Vector3 lastMousePos = Input.mousePosition;
         characterController = GetComponent<CharacterController>();
         player = FindObjectOfType<PlayerController>();
-        allTrees = FindObjectsOfType<Tree>();
-        allFish = FindObjectsOfType<Fishing>();
+        allInteractables = FindObjectsOfType<InteractableObject>();
     }
 
     private static void LockCursor()
@@ -72,52 +71,35 @@ public class PlayerController : MonoBehaviour
     {
         movement();
         updateRotation();
-        interact();
-        fishing();
+        InteractWithObject();
     }
 
-    private void interact()
+    //interact with the closest object if player is closer than 3 units 
+    private void InteractWithObject()
     {
-        foreach (Tree tree in allTrees)
+        //find the closest object 
+        foreach (InteractableObject interactableObject in allInteractables)
         {
-            if (Vector3.Distance(tree.transform.position, player.transform.position) < distanceToClosestTree)
+            if (Vector3.Distance(interactableObject.transform.position, player.transform.position) < nearestObjectDistance && interactableObject.IsInteractable())
             {
-                distanceToClosestTree = Vector3.Distance(tree.transform.position, player.transform.position);
-                closestTree = tree;
+                nearestObjectDistance = Vector3.Distance(interactableObject.transform.position, player.transform.position);
+                nearestObject = interactableObject;
             }
         }
 
-        if (distanceToClosestTree < 5)
+        //within range
+        if (nearestObjectDistance < reachDistance)
         {
+            //TODO
+            //press E to interact canvas thing should go here 
             if (Input.GetKeyDown(KeyCode.E))
             {
-                closestTree.Interact();
+                nearestObject.Interact();
+                //reset variables so that if the object is destroyed it will no longer be in the array 
+                nearestObject = null;
+                nearestObjectDistance = Mathf.Infinity;
             }
         }
-
-        foreach (Fishing fish in allFish)
-        {
-            if (Vector3.Distance(fish.transform.position, player.transform.position) < distanceToClosestFish)
-            {
-                distanceToClosestFish = Vector3.Distance(fish.transform.position, player.transform.position);
-                closestFish = fish;
-            }
-        }
-
-        if (distanceToClosestFish < 5)
-        {
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                closestFish.Interact();
-            }
-        }
-
-    }
-
-    private void fishing()
-    {
-
-
     }
 
     private void movement()
@@ -200,10 +182,5 @@ public class PlayerController : MonoBehaviour
         float newAngle = (float)(angle * Math.PI / 180);
         return newAngle;
     }
-
-    public void UpdateItems()
-    {
-        allTrees = FindObjectsOfType<Tree>();
-        allFish = FindObjectsOfType<Fishing>();
-    }
+    
 }

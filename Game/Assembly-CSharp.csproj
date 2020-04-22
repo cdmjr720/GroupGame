@@ -79,6 +79,7 @@
     <Compile Include="Assets\Scripts\Tree.cs" />
     <None Include="Assets\AssetPacks\Asset Packs\Synty - Polygon Student Sample\README - Usage Rights for these assets.txt" />
     <Reference Include="Unity.Timeline.Editor">
+<<<<<<< HEAD
       <HintPath>C:/Users/cooper906/Desktop/Cita412Group/Game/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VSCode.Editor">
@@ -104,6 +105,33 @@
     </Reference>
     <Reference Include="UnityEditor.UI">
       <HintPath>C:/Users/cooper906/Desktop/Cita412Group/Game/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+=======
+      <HintPath>C:/Users/maitla274/Documents/Unity Projects/S20 Repos/GroupProject2/Game/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VSCode.Editor">
+      <HintPath>C:/Users/maitla274/Documents/Unity Projects/S20 Repos/GroupProject2/Game/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.TextMeshPro.Editor">
+      <HintPath>C:/Users/maitla274/Documents/Unity Projects/S20 Repos/GroupProject2/Game/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>C:/Users/maitla274/Documents/Unity Projects/S20 Repos/GroupProject2/Game/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Timeline">
+      <HintPath>C:/Users/maitla274/Documents/Unity Projects/S20 Repos/GroupProject2/Game/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.CollabProxy.Editor">
+      <HintPath>C:/Users/maitla274/Documents/Unity Projects/S20 Repos/GroupProject2/Game/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Rider.Editor">
+      <HintPath>C:/Users/maitla274/Documents/Unity Projects/S20 Repos/GroupProject2/Game/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.TextMeshPro">
+      <HintPath>C:/Users/maitla274/Documents/Unity Projects/S20 Repos/GroupProject2/Game/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.UI">
+      <HintPath>C:/Users/maitla274/Documents/Unity Projects/S20 Repos/GroupProject2/Game/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+>>>>>>> 1e3e183c447acfa485a9a7569a5ecefcd16be2b2
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.3.7f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
