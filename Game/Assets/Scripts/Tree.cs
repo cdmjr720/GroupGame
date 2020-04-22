@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Tree : MonoBehaviour
+public class Tree : InteractableObject
 {
     //textures for the tree and then log when tree is cut 
     [SerializeField] GameObject logPile;
@@ -48,7 +48,7 @@ public class Tree : MonoBehaviour
         isCut = true;
     }
 
-    public void Interact() //called by player controller
+    public override void Interact() //called by player controller
     {
         if (!isCut) //not cut yet 
         {
@@ -65,19 +65,14 @@ public class Tree : MonoBehaviour
         {
             //give player item
             inventorySystem.AddItem(woodItem, 1);
-            timesChopped += 1;
+            timesChopped++;
         } else
         {
             //give item and destroy the game object
             inventorySystem.AddItem(woodItem, 1);
-            Destroy(gameObject);
+            SetIsInteractableFalse();
+            GetComponent<CapsuleCollider>().enabled = false;
+            Destroy(logPileInstance);
         }
-    }
-    
-    //this is when the log has been chopped 3 times 
-    private void OnDestroy()
-    {
-        PlayerController playerController = FindObjectOfType<PlayerController>();
-        playerController.UpdateItems();
     }
 }

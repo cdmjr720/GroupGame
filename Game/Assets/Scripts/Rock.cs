@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Rock : MonoBehaviour
+public class Rock : InteractableObject
 {
     //item picked up 
     [SerializeField] Item rockItem;
@@ -18,19 +18,18 @@ public class Rock : MonoBehaviour
         inventorySystem = FindObjectOfType<InventorySystem>();
     }
 
-    public void Interact()
-    {
+    public override void Interact()
+    { 
         if (timesHit < maxTimesHit - 1)
         {
             inventorySystem.AddItem(rockItem, 1);
+            timesHit++;
         } else
         {
-            Destroy(gameObject);
+            inventorySystem.AddItem(rockItem, 1);
+            SetIsInteractableFalse();
+            GetComponent<CapsuleCollider>().enabled = false;
+            GetComponent<MeshRenderer>().enabled = false;
         }
-    }
-
-    private void OnDestroy()
-    {
-        //This will update the player controllers list of interactable objects 
     }
 }

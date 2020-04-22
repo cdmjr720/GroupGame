@@ -46,8 +46,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   logPile: {fileID: 114594, guid: e0bcb36554be1124b8a89d63037350be, type: 3}
   tree: {fileID: 137650, guid: 826b6a0b570e8460990010fa615b5a2a, type: 3}
-  woodItem: {fileID: 0}
-  hardness: 3
+  woodItem: {fileID: 7048917474264769887, guid: d0a3402b6ec4030489df322e2fc12248,
+    type: 3}
 --- !u!136 &6438417920819874170
 CapsuleCollider:
   m_ObjectHideFlags: 0
