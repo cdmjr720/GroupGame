@@ -293,7 +293,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &464096
 Transform:
   m_ObjectHideFlags: 0
@@ -1807,6 +1807,7 @@ GameObject:
   - component: {fileID: 633209134}
   - component: {fileID: 633209137}
   - component: {fileID: 633209138}
+  - component: {fileID: 104877429523784910}
   m_Layer: 0
   m_Name: Character_Knights_Soldier_02
   m_TagString: Untagged
@@ -1839,11 +1840,11 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 191330}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: d288a0e4a2d923b46898986e979da643, type: 3}
-  m_Controller: {fileID: 0}
+  m_Avatar: {fileID: 9000000, guid: 0a9bc438787aea74e81efc710254f625, type: 3}
+  m_Controller: {fileID: 9100000, guid: c911c10a485a092428a52575e0d0fe6c, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
@@ -1885,10 +1886,10 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
-  m_Acceleration: 8
+  m_Speed: 5.66
+  m_Acceleration: 50
   avoidancePriority: 50
-  m_AngularSpeed: 120
+  m_AngularSpeed: 5000
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
@@ -1911,8 +1912,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chaseDistance: 5
   suspicionTime: 3
+  attackDistance: 3
   patrolPath: {fileID: 0}
   waypointTolerance: 1
+  target: {fileID: 0}
+--- !u!114 &104877429523784910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 191330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09cfa9126ea164e4eb919a04b2aa332d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeBetweenAttacks: 2
+  rightHandTransform: {fileID: 461188}
+  leftHandTransform: {fileID: 403948}
   target: {fileID: 0}
 --- !u!1 &193320
 GameObject:
@@ -2051,6 +2069,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PT_Medieval_Club_01
       objectReference: {fileID: 0}
+    - target: {fileID: 1247529560651778, guid: 004a9151c34cdb34a895313a480b2d87, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4180241154466476, guid: 004a9151c34cdb34a895313a480b2d87, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.06
@@ -2120,7 +2142,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4308763113265982, guid: 7fffcfe153453e644b78633b71669399, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4308763113265982, guid: 7fffcfe153453e644b78633b71669399, type: 3}
       propertyPath: m_LocalPosition.z
