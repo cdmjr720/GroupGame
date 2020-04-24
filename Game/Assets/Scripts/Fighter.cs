@@ -9,30 +9,38 @@ namespace Island.Combat
 {
     public class Fighter : MonoBehaviour
     {
-        [SerializeField] float timeBetweenAttacks = 1f;
+        [SerializeField] float timeBetweenAttacks = 2f;
         [SerializeField] Transform rightHandTransform = null;
         [SerializeField] Transform leftHandTransform = null;
         [SerializeField] Transform target;
         Health health;
-
-
-        //Health target;
         float timeSinceLastAttack = Mathf.Infinity;
+
+
+        //player health
+        Health playerHealth;
+
         //Item currentWeapon = null;
 
+        private void Start()
+        {
+            playerHealth = FindObjectOfType<PlayerController>().GetComponentInParent<Health>();
+        }
 
         private void GetRange()
         {
 
-            if (GetComponent<AIController>().InAttackRangeOfPlayer() == true)
+            if (GetComponent<AIController>().InAttackRangeOfPlayer() == true && timeSinceLastAttack > timeBetweenAttacks)
             {
-                Debug.Log("damage");
+                timeSinceLastAttack = 0;
+                playerHealth.TakeDamage(10);
             }
         }
 
         private void Update()
         {
             GetRange();
+            timeSinceLastAttack += Time.deltaTime;
         }
 
 
