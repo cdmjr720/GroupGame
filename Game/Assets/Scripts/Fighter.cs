@@ -21,6 +21,7 @@ namespace Island.Combat
         Health playerHealth;
 
         //Item currentWeapon = null;
+        bool range = false;
 
         private void Start()
         {
@@ -34,17 +35,38 @@ namespace Island.Combat
             {
                 timeSinceLastAttack = 0;
                 playerHealth.TakeDamage(10);
+                range = true;
             }
         }
 
         private void Update()
         {
             GetRange();
+            if (range == true)
+            {
+                TriggerAttack();
+                GetComponent<NativeMover>().Cancel();
+            }
+
+            else
+            {
+                StopAttack();
+            }
+
             timeSinceLastAttack += Time.deltaTime;
         }
 
+        private void TriggerAttack()
+        {
+            GetComponent<Animator>().ResetTrigger("stopAttack");
+            GetComponent<Animator>().SetTrigger("attack");
+        }
 
-
+        private void StopAttack()
+        {
+            GetComponent<Animator>().ResetTrigger("attack");
+            GetComponent<Animator>().SetTrigger("stopAttack");
+        }
 
 
 
@@ -80,14 +102,15 @@ namespace Island.Combat
         //    }
         //}
 
-        //private void TriggerAttack()
-        //{
-        //    GetComponent<Animator>().ResetTrigger("stopAttack");
-        //    GetComponent<Animator>().SetTrigger("attack");
-        //}
 
-        ////animation event
-        //void Hit()
+
+        //animation event
+        void Hit()
+        {
+
+        }
+
+
         //{
         //Debug.Log("damage");
 
@@ -121,11 +144,6 @@ namespace Island.Combat
         //    GetComponent<NativeMover>().Cancel();
         //}
 
-        //private void StopAttack()
-        //{
-        //    GetComponent<Animator>().ResetTrigger("attack");
-        //    GetComponent<Animator>().SetTrigger("stopAttack");
-        //}
 
         //public void EquipWeapon(Weapon weapon)
         //{
