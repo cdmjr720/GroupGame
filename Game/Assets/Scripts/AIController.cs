@@ -10,12 +10,12 @@ namespace Island.Control
 {
     public class AIController : MonoBehaviour
     {
-        
+
         [SerializeField] float chaseDistance = 5f;
         [SerializeField] float suspicionTime = 3f;
         [SerializeField] PatrolPath patrolPath;
         [SerializeField] float waypointTolerance = 1f;
-        
+
         //sets "target" for enemy to find player
         [SerializeField] Transform target;
 
@@ -36,6 +36,8 @@ namespace Island.Control
 
         //calls NavMeshAgent
         NavMeshAgent navMeshAgent;
+
+        bool range = false;
 
         private void Start()
         {
@@ -124,11 +126,14 @@ namespace Island.Control
         }
 
         // to find if enemy/native is in range of the player
-        private bool InAttackRangeOfPlayer()
+        public bool InAttackRangeOfPlayer()
         {
             float distanceToPlayer = Vector3.Distance(player.transform.position, transform.position);
             return distanceToPlayer < chaseDistance;
+            
         }
+        
+
 
         // colors radius around Native
         private void OnDrawGizmosSelected()
