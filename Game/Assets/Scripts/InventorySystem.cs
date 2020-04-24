@@ -75,4 +75,29 @@ public class InventorySystem : MonoBehaviour
         }
         Debug.Log("Full Inventory");
     }
+
+
+    //removes items for crafting 
+    public bool RemoveItem(Item item, int quantity)
+    {
+        for (int i = 0; i < items.Length; i++)
+        {
+            //if holding that item 
+            if (items[i] == item && numHeld[i] >= quantity)
+            {
+                numHeld[i] -= quantity; // remove items 
+                if (numHeld[i] == 0) //out of items 
+                {
+                    items[i] = null;
+                    inventorySlots[i].GetComponent<Image>().sprite = null;
+                    inventoryText[i].text = "";
+                } else
+                {
+                    inventoryText[i].text = numHeld[i].ToString();
+                }
+                return true;
+            }
+        }
+        return false;
+    }
 }

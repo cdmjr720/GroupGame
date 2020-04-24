@@ -77,6 +77,11 @@ public class PlayerController : MonoBehaviour
         movement();
         updateRotation();
         InteractWithObject();
+
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            FindObjectOfType<Crafting>().CraftSword();
+        }
     }
 
     //interact with the closest object if player is closer than 3 units 
@@ -109,6 +114,7 @@ public class PlayerController : MonoBehaviour
         {
             interactAlertText.enabled = false;
         }
+        nearestObjectDistance = Mathf.Infinity;
     }
 
     private void movement()
