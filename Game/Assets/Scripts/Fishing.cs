@@ -33,17 +33,22 @@ public class Fishing : InteractableObject
         inventorySystem = FindObjectOfType<InventorySystem>();
     }
 
+
+
     public void Update()
     {
+
         //code for making fish "swim"
         if (isMoving == false)
         {
             //if fish is not moving, makes fish move to random target
             newTarget = target[Random.Range(0, target.Length)];
+            
             isMoving = true;
         }
 
         transform.position = Vector3.MoveTowards(transform.position, newTarget.position, speed * Time.deltaTime);
+        transform.rotation = Quaternion.LookRotation(transform.position, newTarget.position);
 
         if (transform.position == newTarget.position)
         {
