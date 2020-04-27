@@ -11,9 +11,12 @@ public class InventorySystem : MonoBehaviour
     //inventory slots in UI
     [SerializeField] GameObject[] inventorySlots;
     [SerializeField] Text[] inventoryText;
+    [SerializeField] GameObject weaponSlot;
 
     //array of items in inventory 
     Item[] items = new Item[5];
+    //weapon item thing 
+    Item weapon = null;
     //array of number of items held 
     int[] numHeld = new int[5];
 
@@ -78,7 +81,7 @@ public class InventorySystem : MonoBehaviour
 
 
     //removes items for crafting 
-    public bool RemoveItem(Item item, int quantity)
+    public void RemoveItem(Item item, int quantity)
     {
         for (int i = 0; i < items.Length; i++)
         {
@@ -95,9 +98,32 @@ public class InventorySystem : MonoBehaviour
                 {
                     inventoryText[i].text = numHeld[i].ToString();
                 }
-                return true;
+            }
+        }
+    }
+
+    public bool HasEnough(Item item, int quantity)
+    {
+        //loop through inventory 
+        for (int i = 0; i < items.Length; i++)
+        {
+            if (item == items[i])
+            {
+                if (numHeld[i] >= quantity)
+                {
+                    return true;
+                } else
+                {
+                    return false;
+                }
             }
         }
         return false;
+    }
+
+    public void AddWeapon(Item weapon)
+    {
+        this.weapon = weapon;
+        weaponSlot.GetComponent<Image>().sprite = weapon.GetComponent<SpriteRenderer>().sprite;
     }
 }
