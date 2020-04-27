@@ -2322,7 +2322,7 @@ MonoBehaviour:
   head: {fileID: 505966589}
   sensitivityX: 10
   sensitivityY: 10
-  speed: 12
+  speed: 20
   jumpSpeed: 8
   gravity: 20
   reachDistance: 3

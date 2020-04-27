@@ -45,15 +45,23 @@ namespace Island.Combat
             if (range == true)
             {
                 TriggerAttack();
-                GetComponent<NativeMover>().Cancel();
+                //GetComponent<NativeMover>().Cancel();
+                
             }
 
             else
             {
-                StopAttack();
+                Cancel();
             }
 
             timeSinceLastAttack += Time.deltaTime;
+        }
+
+        public void Cancel()
+        {
+            StopAttack();
+            target = null;
+            GetComponent<NativeMover>().Cancel();
         }
 
         private void TriggerAttack()
