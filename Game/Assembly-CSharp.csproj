@@ -72,11 +72,12 @@
     <Compile Include="Assets\Scripts\InteractableObject.cs" />
     <Compile Include="Assets\Scripts\Inventory\Crafting.cs" />
     <Compile Include="Assets\Scripts\Inventory\Fishing.cs" />
+    <Compile Include="Assets\Scripts\Inventory\Food.cs" />
     <Compile Include="Assets\Scripts\Inventory\InventorySystem.cs" />
+    <Compile Include="Assets\Scripts\Inventory\Item.cs" />
     <Compile Include="Assets\Scripts\Inventory\Rock.cs" />
     <Compile Include="Assets\Scripts\Inventory\Tree.cs" />
     <Compile Include="Assets\Scripts\Inventory\Weapon.cs" />
-    <Compile Include="Assets\Scripts\Item.cs" />
     <Compile Include="Assets\Scripts\NativeMover.cs" />
     <Compile Include="Assets\Scripts\PatrolPath.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />

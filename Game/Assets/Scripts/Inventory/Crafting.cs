@@ -23,8 +23,6 @@ public class Crafting : MonoBehaviour
 
     public void CraftSword()
     {
-        //TODO check for empty slot
-
         //sword requires one wood and two rock 
         if (inventory.HasEnough(woodItem, 1) && inventory.HasEnough(rockItem, 2))
         {

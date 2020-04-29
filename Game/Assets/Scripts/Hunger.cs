@@ -28,4 +28,9 @@ public class Hunger : MonoBehaviour
     {
         return hunger / 100;
     }
+
+    public void EatFood(Food food)
+    {
+        hunger += food.GetHungerValue();
+    }
 }

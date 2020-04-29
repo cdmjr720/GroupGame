@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6902318342206978042}
-  - component: {fileID: 8513484835930528191}
   - component: {fileID: 531503591}
+  - component: {fileID: 609213387}
   m_Layer: 0
   m_Name: SwordItem
   m_TagString: Untagged
@@ -32,20 +32,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8513484835930528191
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7807401666043014042}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 117bc1c1aea4b7e458a044b66ecf7179, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHeld: 1
-  itemName: Sword
 --- !u!212 &531503591
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -96,3 +82,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &609213387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7807401666043014042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 233249e0615d6d54bb968e5bfefd9c37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHeld: 1
+  itemName: Sword
+  damage: 10
+  range: 3
+  prefab: {fileID: 181534, guid: 13af847dfa6dbe844ba4b7c902f98f67, type: 3}
