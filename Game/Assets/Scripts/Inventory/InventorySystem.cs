@@ -20,6 +20,9 @@ public class InventorySystem : MonoBehaviour
     //array of number of items held 
     int[] numHeld = new int[5];
 
+    //weapon being held 
+    GameObject weaponHeld;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -121,9 +124,11 @@ public class InventorySystem : MonoBehaviour
         return false;
     }
 
-    public void AddWeapon(Item weapon)
+    public void AddWeapon(Weapon weapon)
     {
         this.weapon = weapon;
         weaponSlot.GetComponent<Image>().sprite = weapon.GetComponent<SpriteRenderer>().sprite;
+        
+        weaponHeld = Instantiate(weapon.GetPrefab(), FindObjectOfType<PlayerController>().GetHandLocation());
     }
 }

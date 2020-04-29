@@ -6,10 +6,10 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
-    //player head and body 
+    //player head and body and hand
     [SerializeField] GameObject body;
     [SerializeField] GameObject head;
-
+    [SerializeField] Transform handLocation;
     //looking sensitivity 
     [Range(1, 100)] [SerializeField] float sensitivityX = 10;
     [Range(1, 100)] [SerializeField] float sensitivityY = 10;
@@ -20,6 +20,9 @@ public class PlayerController : MonoBehaviour
 
     //starts the player's x rotation at 0
     float rotationX = 0F;
+
+    //crafting GUI
+    [SerializeField] GameObject craftingView;
 
     //character controller used for moving 
     CharacterController characterController;
@@ -57,6 +60,7 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
+        craftingView.SetActive(false);
         interactAlertText.enabled = false;
         LockCursor();
         Vector3 lastMousePos = Input.mousePosition;
@@ -77,10 +81,24 @@ public class PlayerController : MonoBehaviour
         movement();
         updateRotation();
         InteractWithObject();
+        Crafting();
+    }
 
+    private void Crafting()
+    {
         if (Input.GetKeyDown(KeyCode.C))
         {
-            FindObjectOfType<Crafting>().CraftSword();
+            if (craftingView.activeInHierarchy)
+            {
+                craftingView.SetActive(false);
+                Cursor.visible = false;
+                Cursor.lockState = CursorLockMode.Locked;
+            } else
+            {
+                craftingView.SetActive(true);
+                Cursor.visible = true;
+                Cursor.lockState = CursorLockMode.None;
+            }
         }
     }
 
@@ -196,6 +214,11 @@ public class PlayerController : MonoBehaviour
     {
         float newAngle = (float)(angle * Math.PI / 180);
         return newAngle;
+    }
+
+    public Transform GetHandLocation()
+    {
+        return handLocation;
     }
     
 }
