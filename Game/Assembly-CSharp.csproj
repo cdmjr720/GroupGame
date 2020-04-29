@@ -79,6 +79,7 @@
     <Compile Include="Assets\Scripts\Rock.cs" />
     <Compile Include="Assets\Scripts\SceneLoader.cs" />
     <Compile Include="Assets\Scripts\Tree.cs" />
+    <Compile Include="Assets\Scripts\Weapon.cs" />
     <None Include="Assets\AssetPacks\Synty - Polygon Student Sample\README - Usage Rights for these assets.txt" />
     <None Include="Assets\AssetPacks\Animations by Explosive\README - Usage Rights for these assets 1.txt" />
     <Reference Include="Unity.Timeline.Editor">

@@ -11,7 +11,7 @@ public class Crafting : MonoBehaviour
     [SerializeField] Item rockItem;
 
     //crafted items 
-    [SerializeField] Item swordItem;
+    [SerializeField] Weapon swordItem;
 
     //inventory of player 
     InventorySystem inventory;
@@ -28,6 +28,8 @@ public class Crafting : MonoBehaviour
         //sword requires one wood and two rock 
         if (inventory.HasEnough(woodItem, 1) && inventory.HasEnough(rockItem, 2))
         {
+            inventory.RemoveItem(woodItem, 1);
+            inventory.RemoveItem(rockItem, 2);
             inventory.AddWeapon(swordItem);
         }
     }

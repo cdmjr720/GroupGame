@@ -6,10 +6,10 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
-    //player head and body 
+    //player head and body and hand
     [SerializeField] GameObject body;
     [SerializeField] GameObject head;
-
+    [SerializeField] Transform handLocation;
     //looking sensitivity 
     [Range(1, 100)] [SerializeField] float sensitivityX = 10;
     [Range(1, 100)] [SerializeField] float sensitivityY = 10;
@@ -196,6 +196,11 @@ public class PlayerController : MonoBehaviour
     {
         float newAngle = (float)(angle * Math.PI / 180);
         return newAngle;
+    }
+
+    public Transform GetHandLocation()
+    {
+        return handLocation;
     }
     
 }
