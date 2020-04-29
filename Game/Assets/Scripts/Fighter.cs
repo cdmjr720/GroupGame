@@ -36,6 +36,9 @@ namespace Island.Combat
                 timeSinceLastAttack = 0;
                 playerHealth.TakeDamage(10);
                 range = true;
+            } else
+            {
+                range = false;
             }
         }
 
