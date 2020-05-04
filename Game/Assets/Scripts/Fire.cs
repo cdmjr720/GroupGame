@@ -2,42 +2,36 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Fire : MonoBehaviour
+public class Fire : InteractableObject
 {
     [SerializeField] GameObject fireEmpty;
     [SerializeField] GameObject fireOn;
     GameObject fireEmptyInstance;
     GameObject fireOnInstance;
     GameObject player;
-    bool fireBuilt = false;
+    bool fireLit = false;
 
-    // Start is called before the first frame update
-    void Start()
+    public void CreateFirePit() //called from crafting 
     {
-        
+        fireEmptyInstance = Instantiate<GameObject>(fireEmpty, gameObject.transform);
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void Interact() //called by player controller
     {
-        player = GameObject.FindWithTag("Player");
-        
-        FireBuild();
-        
+        if (!fireLit) //not lit yet 
+        {
+            Light();
+            SetIsInteractableFalse();
+        }
     }
 
-    private void FireBuild()
+    //light fire 
+    public void Light()
     {
-        if (Input.GetKeyDown(KeyCode.B))
-        {
-            fireEmptyInstance = Instantiate<GameObject>(fireEmpty, gameObject.transform, player.transform);
-            fireBuilt = true;
-        }
-        if (fireBuilt = true && Input.GetKeyDown(KeyCode.F))
-        {
-            fireOnInstance = Instantiate<GameObject>(fireOn, fireEmpty.transform);
-
-        }
+        //get rid of unlit object and create lit object in same spot 
+        Destroy(fireEmptyInstance);
+        Instantiate<GameObject>(fireOn, gameObject.transform);
+        fireLit = true;
     }
 
 }

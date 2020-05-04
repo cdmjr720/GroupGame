@@ -539,7 +539,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Lean To
+  m_Text: Fire
 --- !u!222 &286252753
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2374,7 +2374,6 @@ GameObject:
   - component: {fileID: 969336354}
   - component: {fileID: 969336355}
   - component: {fileID: 969336356}
-  - component: {fileID: 969336357}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -2397,7 +2396,7 @@ Transform:
   - {fileID: 505966590}
   - {fileID: 1843383821}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &969336351
 MonoBehaviour:
@@ -2507,21 +2506,6 @@ MonoBehaviour:
   hunger: 100
   foreground: {fileID: 1670510320}
   timeBetweenHungerIncrease: 10
---- !u!114 &969336357
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 969336349}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5953b9681ab05934da2536ee1597e3bc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fireEmpty: {fileID: 4860366848207780543, guid: 6e93e7c36538b4f4982912f70b39c29e,
-    type: 3}
-  fireOn: {fileID: 8365279294753057196, guid: 4788ec7c78a4e154383fef73f1d361fc, type: 3}
 --- !u!1 &1075625866
 GameObject:
   m_ObjectHideFlags: 0
@@ -3233,12 +3217,12 @@ GameObject:
   - component: {fileID: 1703085832}
   - component: {fileID: 1703085831}
   m_Layer: 5
-  m_Name: Lean-to-button
+  m_Name: Fire button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1703085830
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3301,7 +3285,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1703085832}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2053894968}
+        m_MethodName: CarftFire
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1703085832
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3486,7 +3481,7 @@ PrefabInstance:
     - target: {fileID: 2282839501238543939, guid: 27b2a5e9e01330645a7ab5be223502ae,
         type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2282839501238543939, guid: 27b2a5e9e01330645a7ab5be223502ae,
         type: 3}
@@ -3711,6 +3706,8 @@ MonoBehaviour:
   rockItem: {fileID: 3138588143501244537, guid: a42702ade4040f942bc1d68e8a2316d1,
     type: 3}
   swordItem: {fileID: 609213387, guid: 36d9a1bc9d907124f9a2d9c1e390c7e5, type: 3}
+  fireInteractable: {fileID: 5773922321107620558, guid: e6002fa2db466404bbdd3721771be540,
+    type: 3}
 --- !u!4 &2053894969
 Transform:
   m_ObjectHideFlags: 0
@@ -3723,7 +3720,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2087470718
 GameObject:
@@ -3906,7 +3903,7 @@ PrefabInstance:
     - target: {fileID: 6438417920819874169, guid: 0a943c8b5a454ca4eacbd18c78847c6c,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6438417920819874169, guid: 0a943c8b5a454ca4eacbd18c78847c6c,
         type: 3}
