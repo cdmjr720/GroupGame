@@ -78,6 +78,7 @@ public class PlayerController : MonoBehaviour
     
     void Update()
     {
+        UpdateInteractables();
         movement();
         updateRotation();
         InteractWithObject();
@@ -100,6 +101,12 @@ public class PlayerController : MonoBehaviour
                 Cursor.lockState = CursorLockMode.None;
             }
         }
+    }
+
+    //check for new items
+    private void UpdateInteractables()
+    {
+        allInteractables = FindObjectsOfType<InteractableObject>();
     }
 
     //interact with the closest object if player is closer than 3 units 
