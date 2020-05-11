@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1631979790619979722}
-  - component: {fileID: 591198586667949385}
+  - component: {fileID: 665598994671107569}
   m_Layer: 0
   m_Name: PorkItem
   m_TagString: Untagged
@@ -31,7 +31,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &591198586667949385
+--- !u!114 &665598994671107569
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -40,9 +40,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 3239789603264920567}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 117bc1c1aea4b7e458a044b66ecf7179, type: 3}
+  m_Script: {fileID: 11500000, guid: ec5940371d1671946820feadec0bf062, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   maxHeld: 10
   itemName: Pork
   isFood: 1
+  hungerValue: 10

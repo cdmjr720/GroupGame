@@ -2951,7 +2951,7 @@ MonoBehaviour:
   - {fileID: 1321418321}
   - {fileID: 2128505339}
   - {fileID: 1652353499}
-  porkItem: {fileID: 591198586667949385, guid: 0d10638953ca48640a15e902b1bd7394, type: 3}
+  porkItem: {fileID: 665598994671107569, guid: 0d10638953ca48640a15e902b1bd7394, type: 3}
 --- !u!95 &1354367283
 Animator:
   serializedVersion: 3
@@ -3176,6 +3176,11 @@ PrefabInstance:
     - target: {fileID: 4597376258575022, guid: de6abd774f85e18408346a3233418242, type: 3}
       propertyPath: m_LocalScale.z
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 23092161146695012, guid: de6abd774f85e18408346a3233418242,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: de6abd774f85e18408346a3233418242, type: 3}
@@ -3516,7 +3521,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1652353495}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 9.629999, y: 14.490001, z: -17.244688}
+  m_LocalPosition: {x: 9.629999, y: 13.3, z: -17.244688}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -4231,7 +4236,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2128505335}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.8299994, y: 16.195, z: -11.874691}
+  m_LocalPosition: {x: 3.2, y: 13.92, z: 18}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
