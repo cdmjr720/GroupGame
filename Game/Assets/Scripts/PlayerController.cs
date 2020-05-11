@@ -45,7 +45,7 @@ public class PlayerController : MonoBehaviour
     float finalZMovement;
 
     //reach distance for interacting with things
-    [SerializeField] float reachDistance = 6f;
+    [SerializeField] float reachDistance = 100f;
     //text on canvas to tell player to press E
     [SerializeField] Text interactAlertText;
 

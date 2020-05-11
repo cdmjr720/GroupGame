@@ -11,6 +11,8 @@ public class Item : MonoBehaviour
     [SerializeField] int maxHeld = 10;
     [SerializeField] string itemName = "";
 
+    [SerializeField] bool isFood = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,5 +33,10 @@ public class Item : MonoBehaviour
     public int GetMaxHeld()
     {
         return maxHeld;
+    }
+
+    public bool IsFood()
+    {
+        return isFood;
     }
 }

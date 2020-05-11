@@ -59,27 +59,36 @@ public class InventorySystem : MonoBehaviour
 
     public void AddItem(Item itemPickedUp, int quantity)
     {
-        for (int i = 0; i < items.Length; i++)
+        //if item is food eat it instead
+        if (itemPickedUp.IsFood())
         {
-            if (items[i] == itemPickedUp && numHeld[i] < items[i].GetMaxHeld()) //if already holding that type with more room
+            //eat 
+            Food foodItem = (Food)itemPickedUp;
+            FindObjectOfType<PlayerController>().GetComponent<Hunger>().EatFood(foodItem);
+        } else
+        {
+            //pick up 
+            for (int i = 0; i < items.Length; i++)
             {
-                numHeld[i] += quantity; //pick up 
-                inventoryText[i].text = numHeld[i].ToString(); //update text 
-                return;
+                if (items[i] == itemPickedUp && numHeld[i] < items[i].GetMaxHeld()) //if already holding that type with more room
+                {
+                    numHeld[i] += quantity; //pick up 
+                    inventoryText[i].text = numHeld[i].ToString(); //update text 
+                    return;
+                }
+            }
+            for (int i = 0; i < items.Length; i++)
+            {
+                if (items[i] == null) //empty slot 
+                {
+                    items[i] = itemPickedUp; //set the type to the item
+                    inventorySlots[i].GetComponent<Image>().sprite = itemPickedUp.GetComponent<SpriteRenderer>().sprite; //change picture 
+                    numHeld[i] = quantity; //add to number held 
+                    inventoryText[i].text = numHeld[i].ToString(); //update text
+                    return;
+                }
             }
         }
-        for (int i = 0; i < items.Length; i++)
-        {
-            if (items[i] == null) //empty slot 
-            {
-                items[i] = itemPickedUp; //set the type to the item
-                inventorySlots[i].GetComponent<Image>().sprite = itemPickedUp.GetComponent<SpriteRenderer>().sprite; //change picture 
-                numHeld[i] = quantity; //add to number held 
-                inventoryText[i].text = numHeld[i].ToString(); //update text
-                return;
-            }
-        }
-        Debug.Log("Full Inventory");
     }
 
 
