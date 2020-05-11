@@ -96,4 +96,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHeld: 10
   itemName: Fish
+  isFood: 1
   hungerValue: 10

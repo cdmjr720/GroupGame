@@ -62,6 +62,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\PigController.cs" />
     <Compile Include="Assets\Scripts\AIController.cs" />
     <Compile Include="Assets\Scripts\ActionScheduler.cs" />
     <Compile Include="Assets\Scripts\Fighter.cs" />
@@ -88,6 +89,87 @@
     <None Include="Assets\AssetPacks\Boeng C-17\Animations by Explosive\README - Usage Rights for these assets 1.txt" />
     <None Include="Assets\VertexColorFarmAnimals\Shaders\VertexColorUnlit.shader" />
     <Reference Include="Unity.Timeline.Editor">
+<<<<<<< HEAD
+      <HintPath>C:/Users/norton402/Documents/Cita 412/Cita412GroupGame/Game/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VSCode.Editor">
+      <HintPath>C:/Users/norton402/Documents/Cita 412/Cita412GroupGame/Game/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.TextMeshPro.Editor">
+      <HintPath>C:/Users/norton402/Documents/Cita 412/Cita412GroupGame/Game/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>C:/Users/norton402/Documents/Cita 412/Cita412GroupGame/Game/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Timeline">
+      <HintPath>C:/Users/norton402/Documents/Cita 412/Cita412GroupGame/Game/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.CollabProxy.Editor">
+      <HintPath>C:/Users/norton402/Documents/Cita 412/Cita412GroupGame/Game/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Rider.Editor">
+      <HintPath>C:/Users/norton402/Documents/Cita 412/Cita412GroupGame/Game/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.TextMeshPro">
+      <HintPath>C:/Users/norton402/Documents/Cita 412/Cita412GroupGame/Game/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.UI">
+      <HintPath>C:/Users/norton402/Documents/Cita 412/Cita412GroupGame/Game/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+||||||| merged common ancestors
+<<<<<<< HEAD
+      <HintPath>C:/Users/cooper906/Desktop/Cita412Group/Game/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VSCode.Editor">
+      <HintPath>C:/Users/cooper906/Desktop/Cita412Group/Game/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.TextMeshPro.Editor">
+      <HintPath>C:/Users/cooper906/Desktop/Cita412Group/Game/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>C:/Users/cooper906/Desktop/Cita412Group/Game/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Timeline">
+      <HintPath>C:/Users/cooper906/Desktop/Cita412Group/Game/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.CollabProxy.Editor">
+      <HintPath>C:/Users/cooper906/Desktop/Cita412Group/Game/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Rider.Editor">
+      <HintPath>C:/Users/cooper906/Desktop/Cita412Group/Game/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.TextMeshPro">
+      <HintPath>C:/Users/cooper906/Desktop/Cita412Group/Game/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.UI">
+      <HintPath>C:/Users/cooper906/Desktop/Cita412Group/Game/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+=======
+      <HintPath>C:/Users/norton402/Documents/Cita 412/Cita412GroupGame/Game/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VSCode.Editor">
+      <HintPath>C:/Users/norton402/Documents/Cita 412/Cita412GroupGame/Game/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.TextMeshPro.Editor">
+      <HintPath>C:/Users/norton402/Documents/Cita 412/Cita412GroupGame/Game/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>C:/Users/norton402/Documents/Cita 412/Cita412GroupGame/Game/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Timeline">
+      <HintPath>C:/Users/norton402/Documents/Cita 412/Cita412GroupGame/Game/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.CollabProxy.Editor">
+      <HintPath>C:/Users/norton402/Documents/Cita 412/Cita412GroupGame/Game/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Rider.Editor">
+      <HintPath>C:/Users/norton402/Documents/Cita 412/Cita412GroupGame/Game/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.TextMeshPro">
+      <HintPath>C:/Users/norton402/Documents/Cita 412/Cita412GroupGame/Game/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.UI">
+      <HintPath>C:/Users/norton402/Documents/Cita 412/Cita412GroupGame/Game/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+>>>>>>> 50eab7cf24cc3a490c753fc18deee4e155e3974c
+=======
       <HintPath>C:/Users/maitla274/Documents/Unity Projects/S20 Repos/GroupProject2/Game/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VSCode.Editor">
@@ -113,6 +195,7 @@
     </Reference>
     <Reference Include="UnityEditor.UI">
       <HintPath>C:/Users/maitla274/Documents/Unity Projects/S20 Repos/GroupProject2/Game/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+>>>>>>> 92f80030f30251932f882069b486d8e3e975de6b
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.3.7f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
